@@ -22,13 +22,12 @@ class NewsViewModel(
     var loadError = mutableStateOf("")
     var isLoading = mutableStateOf(false)
 
-    init {
-        populateFrontpage()
-    }
+
 
     private val PAGE_SIZE = 15
     var index = 0
         private set
+
     fun fetchMoreStories() {
         isLoading.value = true
         viewModelScope.launch {
@@ -46,8 +45,11 @@ class NewsViewModel(
         }
     }
 
+    init {
+        fetchMoreStories()
+    }
+
     fun populateFrontpage() {
-        index = 1
         isLoading.value = true
         viewModelScope.launch {
             when (val result = newsRepository.getFrontPage()) {
