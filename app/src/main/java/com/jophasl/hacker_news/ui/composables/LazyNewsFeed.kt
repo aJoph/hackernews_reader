@@ -26,13 +26,13 @@ fun LazyNewsFeed(
     LaunchedEffect(endIndex) {
         scope.launch {
             scrollState.animateScrollToItem(endIndex - 1)
+            onReachedEnd?.invoke()
         }
     }
     LazyColumn(state = scrollState) {
         itemsIndexed(news) { i, story ->
             if (story == news.last()) {
                 endIndex = i
-                onReachedEnd?.invoke()
             }
 
             NewsTile(data = story)
