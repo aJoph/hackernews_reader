@@ -10,12 +10,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import com.jophasl.hacker_news.data.remote.Story
 import kotlinx.coroutines.launch
 
 @Composable
 fun LazyNewsFeed(
-    news: List<Story>, scrollState: LazyListState, onReachedEnd: (() -> Unit)? = null
+    news: List<Story>,
+    scrollState: LazyListState,
+    onReachedEnd: (() -> Unit)? = null,
+    modifier: Modifier = Modifier
 ) {
     val scope = rememberCoroutineScope()
     var endIndex by remember { mutableStateOf(1) }
