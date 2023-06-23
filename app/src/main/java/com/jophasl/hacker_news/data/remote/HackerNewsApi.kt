@@ -49,6 +49,8 @@ interface HackerNewsApi {
     suspend fun getJobStoriesIds(): Response<List<Int>>
 }
 
+/// Fetches all /beststories. Note that it fetches all at the same time.
+/// For performance reasons, prefer getBestStoriesIds.
 suspend fun HackerNewsApi.getBestStories(): Response<List<Story>> {
     println("HE")
     val idsRes = this.getBestStoriesIds()
