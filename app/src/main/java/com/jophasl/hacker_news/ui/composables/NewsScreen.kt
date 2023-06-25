@@ -59,11 +59,11 @@ fun NewsPage(
 @Preview
 @Composable
 fun PreviewNewsPage() {
-    val api = RetrofitClient.getClient().create(HackerNewsApi::class.java)
-    val model = NewsViewModel(
-        HackerNewsRepository(
-            api
-        )
-    )
-    NewsPage(model)
+//    val api = RetrofitClient.getClient().create(HackerNewsApi::class.java)
+//    val model = NewsViewModel(
+//        HackerNewsRepository(
+//            api
+//        )
+//    )
+//    NewsPage(model)
 }
